@@ -1,6 +1,6 @@
 # Bamazon
 
-**ABOUT:**
+**ABOUT**
 
 Bamazon is an Amazon-like storefront which uses Node and MySQL to:
   * **Bamazon Customer:** take in orders from customers and deplete stock from the store's inventory
@@ -15,7 +15,7 @@ Bamazon is an Amazon-like storefront which uses Node and MySQL to:
     **4) Add New Product:** uses prompts to collect input from the user in order to add a new product
     
 
-**INSTRUCTIONS:**
+**INSTRUCTIONS**
 
 **Bamazon Customer:** 
    In the console/terminal, type node bamazon_customer.js and follow the prompts.
