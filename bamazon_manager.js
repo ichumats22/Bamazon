@@ -59,6 +59,7 @@ function readProducts() {
     if (err) throw err;
     // Log all results of the SELECT statement
     console.log(res);
+    selectCommand();
   });
 }
 
@@ -67,6 +68,7 @@ function lowInventory() {
     if (err) throw err;
     // Log all results of the SELECT statement
     console.log(res);
+    selectCommand();
   });
 }
 
@@ -105,6 +107,7 @@ function addToInventory() {
             if (err) throw err;
             else {
               console.log(`Item #${item_id} quantity updated to ${newQuantity}`)
+              selectCommand();
             }
           }
         );
@@ -154,6 +157,7 @@ function addNewProduct() {
           if (err) throw err;
           else {
             console.log(`Product #${res.insertId} added!`);
+            selectCommand();
           }; 
         }
       )
