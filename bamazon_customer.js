@@ -34,22 +34,32 @@ function readProducts() {
 function completePurchase(item_id, price, purchaseQuantity, newQuantity) {
   var totalPrice = price * purchaseQuantity 
   console.log(`Total Cost: ${totalPrice}`);
-  connection.query(
-    "UPDATE products SET ? WHERE ?",
-    [
-      {
-        stock_quantity: newQuantity
-      },
-      {
-        item_id: item_id
-      }
-    ],
-    function(err, res) {
-      if (err) throw err;
-      // Call deleteProduct AFTER the UPDATE completes
-      //deleteProduct();
+  inquirer.prompt([
+    {
+      type: "confirm",
+      name: "confirm",
+      message: "Please confirm your purchase"
     }
-  );
+  ]).then(function(answer) {
+    if (answer.confirm) {
+      connection.query(
+        "UPDATE products SET ? WHERE ?",
+        [
+          {
+            stock_quantity: newQuantity
+          },
+          {
+            item_id: item_id
+          }
+        ],
+        function(err, res) {
+          if (err) throw err;
+          console.log("Thanks for your purchase!")
+          connection.end();
+        }
+      );
+    }
+  })
 }
 
 function runSearch() {
